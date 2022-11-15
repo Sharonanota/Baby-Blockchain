@@ -1,5 +1,5 @@
-package Babyblockchain;
 
+package Babyblockchain;
 import java.util.ArrayList;
  
 
@@ -12,14 +12,17 @@ public class Block {
  
 	public int nonce;
 	public  Block( String previousHash ){
+       
 		this.prevHash=previousHash;
-	};
+	};	 
 	public Block createBlock(   ) {
 		Block newBlock = new Block(prevHash );
 	 if (blockVerify() == false){
 		System.out.println("failed block verification");
         return null;
+		
 	 }else{
+		
 		newBlock.hashOfBlock = blockHash();
 		newBlock.prevHash = prevHash;
 
@@ -56,3 +59,4 @@ public class Block {
 		return calculatedhash;
 	}
 }
+

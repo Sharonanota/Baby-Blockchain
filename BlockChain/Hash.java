@@ -1,6 +1,10 @@
-package Babyblockchain;
+
+ 
 import java.security.MessageDigest;
-public class hash {
+ 
+ 
+
+public class Hash {
 
     public static String hash_sha256(String msg){
    try {
@@ -17,6 +21,10 @@ public class hash {
 
    } catch (Exception e) {
    throw new RuntimeException(e);
-   }
+   }    
 	}
+
+  
+	
+    
 }

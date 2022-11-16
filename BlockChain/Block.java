@@ -1,5 +1,6 @@
 
-package Babyblockchain;
+
+
 import java.util.ArrayList;
  
 
@@ -35,11 +36,18 @@ public class Block {
 
 	 //this will verify  the block
      public Boolean blockVerify(){
+    
 		for(int j=0; j <this.transactions.size();j++){
+	
+					
 			if((this.transactions == null )) {
+		
 			 System.out.println("cant add an empty transaction");
 			 return false;
-			 }
+			 } 
+			  
+			 
+				 
 			 }
 		return true;
 	   }
@@ -50,7 +58,7 @@ public class Block {
 
 	public String blockHash() {
 		nonce=2;
-		String calculatedhash = hash.hash_sha256( 
+		String calculatedhash = Hash.hash_sha256( 
             prevHash +
 				 transactions.get(0). toString()+
 				Integer.toString(nonce) 
@@ -59,4 +67,3 @@ public class Block {
 		return calculatedhash;
 	}
 }
-

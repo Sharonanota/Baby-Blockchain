@@ -1,4 +1,3 @@
-package Babyblockchain;
 
 import java.util.ArrayList;
 
@@ -18,7 +17,7 @@ public class Transaction{
         nonce++;
 		 operations.add(operation);
 		 Transaction transaction =new Transaction();
-		 ID= hash.hash_sha256( Integer.toString(nonce) + operation.pubkey.toString()+operation.candPubkey.toString()+ Integer.toString(operation.Player) );
+		 ID= Hash.hash_sha256( Integer.toString(nonce) + operation.pubkey.toString()+operation.candPubkey.toString()+ Integer.toString(operation.Game) );
 			return transaction;
 		}
 		 

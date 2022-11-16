@@ -1,12 +1,17 @@
-package Babyblockchain;
+
+
+
 import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+// import com.google.gson.*;
 public class Blockchain {
-   public static  ArrayList<Block> block = new ArrayList<Block>();
-   public  HashMap<Account,Integer> coinDb = new HashMap<Account,Integer>();
+    
+
+   public static ArrayList<Block> block = new ArrayList<Block>();
+   
+ public HashMap<Account,Integer> coinDb = new HashMap<Account,Integer>();
  ArrayList<Transaction> txDatabase;
  public int faucetVote=20;
 
@@ -25,14 +30,14 @@ public class Blockchain {
                   return false;
            }
 
-            	 }
+              }
 
          
     System.out.println("Block validated");
    return true;
 }   
 
-public static Block initBlock (){
+public static Block initBlock ( ){
   //genesis block
   
 
@@ -45,12 +50,12 @@ public static Block initBlock (){
  init1.updateBalance(1);
  init2.updateBalance(1);
  Operation test = new Operation(init1, init2, 1, sign);
- Operation initOp = test.createOperation();
+Operation initOp = test.createOperation();
  Transaction genTrans = new Transaction( );
  genTrans.ID = "0";
  genTrans.operation = initOp;
  
- genTrans.operations.add(0,  genTrans.operation);
+ genTrans.operations.add(0, genTrans.operation);
  
 Block genesisBlock = new Block("0");
 genesisBlock.transactions.add(0,genTrans.createTransaction());
@@ -61,18 +66,20 @@ genesisBlock.hashOfBlock = genesisBlock.hashOfBlock;
 }
 
 
- public static void main(String[] args) {
+public static void main(String[] args) {
  
   Block b0= initBlock();
   block.add(0, b0);
 
   Block block1 = new Block(b0.hashOfBlock);
-
+ 
   block.add(1, block1);
+  
   System.out.println(block.get(0).prevHash);
   System.out.println( block.get(0).hashOfBlock);
-  System.out.println(block.get(1).prevHash );
-  System.out.println(block.get(1).hashOfBlock );
+  System.out.println(block.get(1).prevHash ); System.out.println(block.get(1).hashOfBlock );
+  
+   
 }
 
 }
